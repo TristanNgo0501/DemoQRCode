@@ -98,5 +98,17 @@ namespace DemoQRCode.Controllers
             }
             return View(product);
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var pro = _dbContext.Products.SingleOrDefaultAsync(p => p.Id == id);
+            if (pro != null)
+            {
+                _dbContext.Products.Remove(pro);
+                _dbContext.SaveChangesAsync();
+            }
+            return View();
+        }
     }
 }
