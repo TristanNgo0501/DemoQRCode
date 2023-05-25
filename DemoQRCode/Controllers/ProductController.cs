@@ -102,13 +102,13 @@ namespace DemoQRCode.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var pro = _dbContext.Products.SingleOrDefaultAsync(p => p.Id == id);
+            var pro = _dbContext.Products.SingleOrDefault(p => p.Id == id);
             if (pro != null)
             {
                 _dbContext.Products.Remove(pro);
-                _dbContext.SaveChangesAsync();
+                _dbContext.SaveChanges();
             }
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
