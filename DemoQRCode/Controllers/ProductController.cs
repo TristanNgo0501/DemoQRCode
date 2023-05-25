@@ -108,7 +108,7 @@ namespace DemoQRCode.Controllers
                 _dbContext.Products.Remove(pro);
                 _dbContext.SaveChanges();
             }
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
